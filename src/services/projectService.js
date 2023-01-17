@@ -1,11 +1,11 @@
-const projectDao = require("../models/projectDao");
-const { raiseCustomError } = require("../utils/error");
+const projectDao = require('../models/projectDao');
+const { raiseCustomError } = require('../utils/error');
 
 const getProjectByProjectId = async (projectId) => {
   const project = await projectDao.getProjectByProjectId(projectId);
 
   if (!project) {
-    raiseCustomError("project does not exist", 404);
+    raiseCustomError('project does not exist', 404);
   }
 
   const gathered_amount = project.gift * project.cnt;
